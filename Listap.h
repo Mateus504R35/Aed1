@@ -32,4 +32,3 @@ void mostrarP(ListaP *l);
 
 
 #endif // LISTAP_H_INCLUDED
-
