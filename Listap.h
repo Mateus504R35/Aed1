@@ -5,24 +5,24 @@ typedef struct prato Pratos;
 
 typedef struct listaP ListaP;
 
-ListaP criar();
-void limpar(ListaPl);
+ListaP criarP();
+void limparP(ListaPl);
 
-int inserirInicio(ListaP l, Pratos it);
-int inserirFim(ListaPl, Pratos it);
-int inserirPosicao(ListaP l, Pratos it,int pos);
+int inserirInicioP(ListaP l, Pratos it);
+int inserirFimP(ListaPl, Pratos it);
+int inserirPosicaoP(ListaP l, Pratos it,int pos);
 
-int removerInicio (ListaPl);
-int removerFim (ListaP l);
-int removerPosicao(ListaPl,int pos);
-int removerItem(ListaP l, Pratos it);
+int removerInicioP (ListaPl);
+int removerFimP (ListaP l);
+int removerPosicaoP(ListaPl,int pos);
+int removerItemP (ListaP l, Pratos it);
 
-int buscarItemChave (ListaPl,int chave, Prato retorno);
-int buscarPosicao(ListaPl,int posicao, Prato retorno);
+int buscarItemChaveP (ListaPl,int chave, Prato retorno);
+int buscarPosicaoP(ListaPl,int posicao, Prato retorno);
 
-int listaVazia(ListaPl);
-int tamanho(ListaP l);
-void mostrar(ListaPl);
+int listaVaziaP(ListaPl);
+int tamanhoP(ListaP l);
+void mostrarP(ListaPl);
 
 
 
