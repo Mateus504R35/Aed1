@@ -4,7 +4,6 @@
 
 #define MAX 100
 
-
 typedef struct listaP{
     int total;
     Pratos valores[MAX];
@@ -78,13 +77,13 @@ void mostrarP(ListaP *l) {
     int i;
     if(l!=NULL)
     {
-        printf("[");
+        printf("Cardapio\n");
         for(i=0;i<l->total;i++)
         {
-            printf("{%s,\t",l->valores[i].comida);
+            printf("[%d] %s,\t",i+1,l->valores[i].comida);
             printf("$%.2f\n",l->valores[i].preco);
-            printf("  ->%s}",l->valores[i].descricao);
+            printf("     %s\n",l->valores[i].descricao);
         }
-        printf("]\n");
+        printf("\n");
     }
 }
