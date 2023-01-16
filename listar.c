@@ -30,7 +30,7 @@ int inserirInicioR(ListaR *l, Restaurante it) {
 
 int removerInicioR(ListaR *l) {
     if (l == NULL) return 2;
-    if (listaVazia(l) == 0) return 1;
+    if (listaVaziaR(l) == 0) return 1;
     NoR *noRListaR = l->inicio;
     l->inicio = noRListaR->prox;
     free(noRListaR);
@@ -38,8 +38,8 @@ int removerInicioR(ListaR *l) {
 }
 
 void limparR(ListaR *l) {
-    while (listaVazia(l) != 0)
-        removerInicio(l);
+    while (listaVaziaR(l) != 0)
+        removerInicioR(l);
 }
 
 void mostrarR(ListaR *l) {
@@ -64,7 +64,7 @@ int listaVaziaR(ListaR *l) {
 
 int removerPosicaoR(ListaR *l, int p) {
     if (l == NULL) return 2;
-    if (listaVazia(l) == 0) return 1;
+    if (listaVaziaR(l) == 0) return 1;
     if (p < 0) return 3;
     int r = 0;
     NoR *noRAuxiliarR = NULL;
@@ -82,4 +82,18 @@ int removerPosicaoR(ListaR *l, int p) {
     free(noRListaR);
     return 0;
 
+}
+
+
+int buscarItemChaveR(ListaR *l, int ch, Restaurante *ret) {
+    if (l == NULL) return 2;
+    NoR *noRListaR = l->inicio;
+    while ((noRListaR != NULL)) {
+        if ((noRListaR->valor).id == chave) {
+           *ret = noRListaR->valor;
+           return 0;
+        }
+        noRListaR = noRListaR->prox;
+    }
+    return 1;
 }
