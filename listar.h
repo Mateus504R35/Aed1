@@ -1,32 +1,26 @@
 #ifndef LISTAR_H_INCLUDED
 #define LISTAR_H_INCLUDED
 
-typedef struct prato Pratos;
+typedef struct restaurante{
+    char nome[30];
+    int id;
+    int culinaria;
+}Restaurante;
 
 typedef struct listar ListaR;
+typedef struct nor NoR;
 
-typedef struct restaurante Restaurante;
+ListaR *criarR();
 
-Lista *criar();
-void limpar(ListaR *l);
-
-int inserirInicio(ListaR *l, Restaurante it);
-int inserirFim(ListaR *l, Restaurante it);
-int inserirPosicao(ListaR *l, Restaurante it,int pos);
-
-int removerInicio (ListaR *l);
-int removerFim (ListaR *l);
-int removerPosicao(ListaR *l,int pos);
-int removerItem(ListaR *l, Restaurante it);
+int inserirInicioR(ListaR *l, Restaurante it);
+int removerInicioR(ListaR *l);
+void limparR(ListaR *l);
 
 int buscarItemChave (ListaR *l,int chave, Restaurante *retorno);
-int buscarPosicao(ListaR *l,int posicao, Restaurante *retorno);
 
-int listaVazia(ListaR *l);
-int tamanho(ListaR *l);
-void mostrar(ListaR *l);
+int listaVaziaR(ListaR *l);
+void mostrarR(ListaR *l);
 
 
 
 #endif // LISTAR_H_INCLUDED
-
