@@ -75,7 +75,7 @@ int removerPosicaoR(ListaR *l, int p) {
         r++;
     }
     if (noRAuxiliarR == NULL)
-        return removerInicio(l);
+        return removerInicioR(l);
     else {
         noRAuxiliarR->prox = noRListaR->prox;
     }
