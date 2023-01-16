@@ -16,7 +16,7 @@ int inserirInicioR(ListaR *l, Restaurante it);
 int removerInicioR(ListaR *l);
 void limparR(ListaR *l);
 
-int buscarItemChave (ListaR *l,int chave, Restaurante *retorno);
+int buscarItemChave (ListaR *l, int ch, Restaurante *ret);
 
 int listaVaziaR(ListaR *l);
 void mostrarR(ListaR *l);
