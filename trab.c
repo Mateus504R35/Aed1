@@ -70,9 +70,12 @@ while ((noLista->prox != NULL)&&(comparaStrg(noLista->valor.usu,it.usu)!=0))
 temp = noLista;
 noLista = noLista->prox;
 }
+if(comparaStrg(noLista->valor.usu,it.usu)==0){
 temp->prox = noLista->prox;
 free(noLista);
 return 0;}
+else return 1;
+}
 
 int auth(Lista *l,char a[], char b[]) {
 if (l == NULL) return 2;
@@ -124,3 +127,4 @@ Lista *Inicializar(){
     if (inserirCli(l,it)!=0) printf("Erro?");
     return l;
 }
+

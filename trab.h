@@ -17,3 +17,4 @@ int auth(Lista *l, char a[], char b[]);
 Lista *Inicializar();
 int authADM(char a[], char b[]);
 void mostrar(Lista *l);
+

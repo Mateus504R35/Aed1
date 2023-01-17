@@ -1,10 +1,8 @@
-#ifndef LISTAP_H_INCLUDED
-#define LISTAP_H_INCLUDED
 
 typedef struct prato{
     char comida[30];
     float preco;
-    char descricao[100];
+    char descricao[300];
 }Pratos;
 
 typedef struct listaP ListaP;
@@ -29,6 +27,27 @@ int listaCheiaP(ListaP *l);
 int tamanhoP(ListaP *l);
 void mostrarP(ListaP *l);
 
+//================================================================
 
+typedef struct restaurante{
+    char nome[30];
+    int id;
+    int culinaria;
+    ListaP *l;
+}Restaurante;
 
-#endif // LISTAP_H_INCLUDED
+typedef struct listar ListaR;
+typedef struct nor NoR;
+
+ListaR *criarR();
+
+int inserirInicioR(ListaR *l, Restaurante it);
+int removerIDR(ListaR *l,int p);
+void limparR(ListaR *l);
+
+int buscarItemChaveR (ListaR *l, int ch, Restaurante *ret);
+
+int listaVaziaR(ListaR *l);
+void mostrarR(ListaR *l);
+
+ListaR *InicializarR();
