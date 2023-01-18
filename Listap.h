@@ -1,6 +1,6 @@
 
 typedef struct prato{
-    char comida[30];
+    char comida[60];
     float preco;
     char descricao[300];
 }Pratos;
@@ -30,7 +30,7 @@ void mostrarP(ListaP *l);
 //================================================================
 
 typedef struct restaurante{
-    char nome[30];
+    char nome[40];
     int id;
     int culinaria;
     ListaP *l;
@@ -51,3 +51,7 @@ int listaVaziaR(ListaR *l);
 void mostrarR(ListaR *l);
 
 ListaR *InicializarR();
+
+//==================================================================
+
+void legenda();

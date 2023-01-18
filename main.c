@@ -5,7 +5,7 @@
 
 int main()
 {
-    char usu[30],sen[30];
+    char usu[31],sen[31],card[29];
     Lista *l = Inicializar();
     ListaR *lR = InicializarR();
     Pratos pit;
@@ -13,13 +13,14 @@ int main()
     Restaurante rit;
     Restaurante *ret = (Restaurante*)malloc(sizeof(Restaurante));
     int flag=0, lgf=0, c=0,c2=0,n2,n,j;
+    int cn,cn2,c3,cj,v1,v2;
     printf("Bem vindo, insira seu usuario e senha:");
     while((flag==0)||(lgf==1)){
     fflush(stdin);
-    printf("\nUsuario:");
+    printf("\n\nUsuario:");
     gets(usu);
     fflush(stdin);
-    printf("\nSenha:");
+    printf("Senha:");
     gets(sen);
     fflush(stdin);
     system("cls");
@@ -38,10 +39,10 @@ int main()
         case 1:
             system("cls");
             fflush(stdin);
-            printf("\nDigite o nome do novo usuario:");
+            printf("\nDigite o nome do novo usuario(max:30 caracteres):");
             gets(it.usu);
             fflush(stdin);
-            printf("\nDigite a senha do novo usuario:");
+            printf("\nDigite a senha do novo usuario(max:30 caracteres):");
             gets(it.senha);
             if (inserirCli(l,it)!=0)printf("ERRO!");
         break;
@@ -62,7 +63,8 @@ int main()
         break;
         case 4:
             system("cls");
-            printf("Tabela de tipos:\n1-Italiano\n2-Comida caseira\n3-Japones\n4-Fast food\n5-Bar e aperitivos\n6-Doces e sorvetes\n\nPara registrar o cardapio do restaurante, utilize a funcao 'editar restaurante' no menu anterior\n\n");
+            legenda();
+            printf("Para registrar o cardapio do restaurante, utilize a funcao 'editar restaurante' no menu anterior\n\n");
             fflush(stdin);
             printf("Digite o nome do novo restaurante:");
             gets(rit.nome);
@@ -154,8 +156,88 @@ int main()
             flag = 1;
             lgf = 0;
             c=0;
+            while (c==0){
+            system("cls");
             printf("Bem vindo %s", usu);
-
+            printf("\n\nCarrinho:");
+            legenda();
+            printf("Digite 0 para desconectar\n\nEscolha um estilo culinario e digite seu numero,\nou digite 8 para completar seu pedido\n\n");
+            fflush(stdin);
+            scanf("%d",&cn);
+            if(cn==0){
+                printf("\nAviso: desconectar causara a perda dos itens salvos no carrinho, digite 0 novamente se deseja continuar:");
+                fflush(stdin);
+                scanf("%d",&cn);
+                if(cn==0){
+                c=1;
+                lgf=1;
+                system("cls");}
+                }
+            else if(cn>7){
+                cn2=0;
+                while(cn2==0){
+                system("cls");
+                printf("Valor a pagar:\n\nPor favor digite seu numero de cartao, data de validade e cvv neste exato modelo(com espacos e barras):\n");
+                printf("XXXX XXXX XXXX XXXX XX/XX XXX\n");
+                fflush(stdin);
+                gets(card);
+                if(card[29]!='\0'){printf("Credenciais incorretas, digite 1 para tentar novamente:");scanf("%d",&c3);c3=0;}
+                else{cn2=1;
+                    system("cls");
+                    printf("Sucesso, seu pedido foi processado,\npor favor mantenha este programa aberto ate recebe-lo e digite 1 quando seu pedido for entregue\n");
+                    printf("Caso nao receba seu pedido dentro de 40 a 50 minutos, digite 0 para entrar em contato com um assistente\n");
+                    scanf("%d",&c3);
+                    if(c3==1){
+                            system("cls");
+                            printf("Obrigado por utilizar nosso servico, bom apetite!");
+                            printf("\n\nDigite 0 para encerrar o programa, ou 1 para retornar a tela de login:\n");
+                            scanf("%d",&v1);
+                            if(v1==0)return 0;
+                            else{c=1;
+                            lgf=1;
+                            system("cls");
+                    }}
+                    else {
+                            system("cls");
+                            printf("Por favor entre em contato com este numero para falar com um asssitente\n\n34 9XXX-XXXX");
+                            printf("\n\nDigite 0 para encerrar o programa, ou 1 para retornar a tela de login");
+                            scanf("%d",&v1);
+                            if(v1==0)return 0;
+                            else{c=1;
+                            lgf=1;
+                            system("cls");
+                            }
+                    }
+                }
+            }}
+            else {
+                cn2=0;
+                while(cn2==0){
+                system("cls");
+                //funçao
+                printf("Finge que tem uns restaurante aqui\n\n");
+                printf("Digite 0 para retornar\n\nDigite o ID de um dos restaurantes:");
+                fflush(stdin);
+                scanf("%d",&cj);
+                if(cj==0)cn2=1;
+                else{
+                    if(buscarItemChaveR(lR,cj,ret)!=0)printf("Erro! Este ID nao existe!");
+                    else{
+                        c3=0;
+                        while(c3==0){
+                        system("cls");
+                        printf("Carrinho:\n\n");
+                        printf("Nome: %s\n\n",ret->nome);
+                        mostrarP(ret->l);
+                        printf("\nDigite 0 0 para voltar\n\nDigite o numero referente ao prato de sua escolha e quantas unidades deseja:\n");
+                        fflush(stdin);
+                        scanf("%d %d",&v1,&v2);
+                        if((v1==0)&&(v2==0))c3=1;
+                        //elsefunção;
+                        }
+                    }
+                }}
+            }}
     }
     else printf("Usuario ou senha incorretos, tente novamente.");}
 }

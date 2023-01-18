@@ -288,3 +288,6 @@ ListaR *InicializarR() {
     return LR;
 }
 
+void legenda() {
+    printf("\n\nTabela de tipos:\n1-Italiano\n2-Comida caseira\n3-Japones\n4-Fast food\n5-Bar e aperitivos\n6-Doces e sorvetes\n7-Outros\n\n");
+}
