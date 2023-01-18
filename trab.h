@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 typedef struct cliente{
-char usu[30];
-char senha[30];
+char usu[31];
+char senha[31];
 }Cliente;
 
 typedef struct lista Lista;
