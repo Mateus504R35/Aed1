@@ -73,8 +73,11 @@ int main()
             scanf("%d",&rit.culinaria);
             fflush(stdin);
             printf("\nDigite o ID do novo restaurante:");
+            c3=0;
+            while(c3==0){
             scanf("%d",&rit.id);
-            rit.l = criarP();
+            if(contemidR(lR,rit.id)==1)printf("ID ja em uso, escolha outro: ");
+            else {rit.l = criarP();c3=1;}}
             if (inserirInicioR(lR,rit)!=0)printf("ERRO!");
         break;
         case 5:
@@ -130,6 +133,9 @@ int main()
                 c2=1;
                 system("cls");
             break;
+            default:
+            printf("Por favor escolha uma opcao valida, digite 1 para tentar novamente:");
+            scanf("%d", &n2);
             }
             }
         break;
@@ -149,6 +155,9 @@ int main()
             printf("Encerrando...\n\nAte a proxima.\n");
             return 0;
         break;
+        default:
+            printf("\nPor favor escolha uma opcao valida, digite 1 para tentar novamente:");
+            scanf("%d", &n);
         }}
 
     }
@@ -159,9 +168,9 @@ int main()
             while (c==0){
             system("cls");
             printf("Bem vindo %s", usu);
-            printf("\n\nCarrinho:");
+            printf("\n\nCarrinho:"); //função
             legenda();
-            printf("Digite 0 para desconectar\n\nEscolha um estilo culinario e digite seu numero,\nou digite 8 para completar seu pedido\n\n");
+            printf("Escolha um estilo culinario e digite seu numero,\nou digite 8 para remover o ultimo prato adicionado no carrinho\nou digite 9 para completar seu pedido\nou digite 0 para desconectar\n\n");
             fflush(stdin);
             scanf("%d",&cn);
             if(cn==0){
@@ -171,14 +180,18 @@ int main()
                 if(cn==0){
                 c=1;
                 lgf=1;
-                system("cls");}
+                system("cls");
+                //função
                 }
-            else if(cn>7){
+                }
+                else if(cn==8);//função
+            else if(cn>8){
                 cn2=0;
                 while(cn2==0){
                 system("cls");
+                //função mostra carrinho
                 printf("Valor a pagar:\n\nPor favor digite seu numero de cartao, data de validade e cvv neste exato modelo(com espacos e barras):\n");
-                printf("XXXX XXXX XXXX XXXX XX/XX XXX\n");
+                printf("XXXX XXXX XXXX XXXX DD/DD VVV\n");
                 fflush(stdin);
                 gets(card);
                 if(card[29]!='\0'){printf("Credenciais incorretas, digite 1 para tentar novamente:");scanf("%d",&c3);c3=0;}
@@ -214,8 +227,8 @@ int main()
                 cn2=0;
                 while(cn2==0){
                 system("cls");
-                //funçao
-                printf("Finge que tem uns restaurante aqui\n\n");
+                //função mostrar carrinho
+                mostraridR(lR,cn);
                 printf("Digite 0 para retornar\n\nDigite o ID de um dos restaurantes:");
                 fflush(stdin);
                 scanf("%d",&cj);

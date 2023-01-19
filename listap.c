@@ -192,11 +192,34 @@ int buscarItemChaveR(ListaR *l, int ch, Restaurante *ret) {
     return 1;
 }
 
+void mostraridR(ListaR *l,int id){
+    NoR *noRListaR = l->inicio;
+    while(noRListaR != NULL) {
+        if(noRListaR->valor.culinaria == id){
+          printf("[%d]: ",noRListaR->valor.id);
+          printf("%s,\n",noRListaR->valor.nome);
+        }
+        noRListaR = noRListaR->prox;
+    }
+    printf("\n");
+}
+
+int contemidR(ListaR *l, int id){
+    NoR *noRListaR = l->inicio;
+    while(noRListaR != NULL) {
+        if(noRListaR->valor.id == id){
+            return 1;
+        }
+        noRListaR = noRListaR->prox;
+    }
+    return 0;
+}
+
 //=========================================================
 
 ListaR *InicializarR() {
     ListaR *LR = criarR();
-    Restaurante it,it3,it4;
+    Restaurante it,it3,it4,it5;
     it.l = criarP();
     Pratos it2;
     strcpy(it2.comida,"Macarrao bolonhesa");
@@ -284,6 +307,37 @@ ListaR *InicializarR() {
     it4.culinaria = 2;
     if (inserirInicioR(LR,it4)!=0) printf("Erro?");
 
+    //===============
+
+    it5.l = criarP();
+    strcpy(it2.comida,"Peperoni");
+    strcpy(it2.descricao,"Massa de pizza com molho de tomate, queijo, oregano e fatias de peperoni");
+    it2.preco = 16.50;
+    if (inserirFimP(it5.l,it2)!=0) printf("Erro?");
+    strcpy(it2.comida,"4 queijos");
+    strcpy(it2.descricao,"Massa de pizza com molho de tomate, quatro queijos sortidos e oregano");
+    it2.preco = 15;
+    if (inserirFimP(it5.l,it2)!=0) printf("Erro?");
+    strcpy(it2.comida,"Frango catupiry");
+    strcpy(it2.descricao,"Massa de pizza com molho de tomate, catupiry frango desfiado");
+    it2.preco = 16;
+    if (inserirFimP(it5.l,it2)!=0) printf("Erro?");
+    strcpy(it2.comida,"Churrasco");
+    strcpy(it2.descricao,"Massa de pizza com molho de tomate, queijo, oregano e pedacos de carne");
+    it2.preco = 18;
+    if (inserirFimP(it5.l,it2)!=0) printf("Erro?");
+    strcpy(it2.comida,"Chocolate");
+    strcpy(it2.descricao,"Massa de pizza com queijo, chocolate derretido e pedaços de sonho de valsa");
+    it2.preco = 14;
+    if (inserirFimP(it5.l,it2)!=0) printf("Erro?");
+    strcpy(it2.comida,"Banana & morango");
+    strcpy(it2.descricao,"Massa de pizza com queijo, chocolate derretido e fatias de morango e de banana");
+    it2.preco = 15;
+    if (inserirFimP(it5.l,it2)!=0) printf("Erro?");
+    strcpy(it5.nome,"DiGiornoGiovanna");
+    it5.id = 4;
+    it5.culinaria = 1;
+    if (inserirInicioR(LR,it5)!=0) printf("Erro?");
 
     return LR;
 }

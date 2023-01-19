@@ -46,6 +46,8 @@ int removerIDR(ListaR *l,int p);
 void limparR(ListaR *l);
 
 int buscarItemChaveR (ListaR *l, int ch, Restaurante *ret);
+void mostraridR(ListaR *l, int id);
+int contemidR(ListaR *l, int id);
 
 int listaVaziaR(ListaR *l);
 void mostrarR(ListaR *l);
